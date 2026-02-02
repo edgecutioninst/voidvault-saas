@@ -1,0 +1,27 @@
+@import "tailwindcss";
+/* TEST COMMENT, REMOVED DAISY */
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background-image: url("https://images.pexels.com/photos/4041750/pexels-photo-4041750.jpeg");
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
