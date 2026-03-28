@@ -54,14 +54,14 @@ export default async function PublicVideoPage({ params }: { params: Promise<{ id
                 </div>
 
                 {/* Branding Footer */}
-                <div className="flex items-center justify-center gap-2 pt-8 opacity-50">
+                <div className="pt-8 flex justify-center">
                     <Link
                         href="/"
-                        className="flex items-center justify-center gap-2 pt-8 opacity-50 hover:opacity-100 transition-opacity"
+                        className="group flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all duration-300"
                     >
-                        <Play className="w-4 h-4 text-blue-500" />
-                        <span className="text-white text-xl font-medium tracking-widest uppercase transition-all duration-300 drop-shadow-[0_0_4px_rgba(255,255,255,0.4)] group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.9)]">
-                            Hosted on Void Vault
+                        <Play className="w-4 h-4 text-blue-500 group-hover:scale-110 transition-transform" />
+                        <span className="text-gray-400 group-hover:text-white text-sm font-medium transition-colors">
+                            Powered by <strong className="text-white">Void Vault</strong> <span className="mx-1 opacity-50">•</span> Create your own
                         </span>
                     </Link>
                 </div>

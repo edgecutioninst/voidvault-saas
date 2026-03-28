@@ -10,14 +10,17 @@ import {
     LayoutDashboardIcon,
     Share2Icon,
     UploadIcon,
+    Crop,
+    Video,
     ImageIcon,
     X,
 } from "lucide-react";
 
 const sidebarItems = [
     { href: "/home", icon: LayoutDashboardIcon, label: "Home Page" },
-    { href: "/social-share", icon: Share2Icon, label: "Social Share" },
     { href: "/video-upload", icon: UploadIcon, label: "Video Upload" },
+    { href: "/social-share", icon: Crop, label: "Image Resizer" },
+    { href: "/video-crop", icon: Video, label: "AI Video Cropper" },
 ];
 
 export default function AppLayout({
@@ -69,8 +72,8 @@ export default function AppLayout({
                                 key={item.href}
                                 href={item.href}
                                 className={`flex items-center space-x-4 px-4 py-3 rounded-xl transition-all duration-200 ${pathname === item.href
-                                        ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
-                                        : "text-neutral-500 hover:bg-white/5 hover:text-white"
+                                    ? "bg-blue-600 text-white shadow-lg shadow-blue-500/20"
+                                    : "text-neutral-500 hover:bg-white/5 hover:text-white"
                                     }`}
                                 onClick={() => setSidebarOpen(false)}
                             >
@@ -108,8 +111,8 @@ export default function AppLayout({
                             {user && (
                                 <>
                                     <div className="hidden sm:flex flex-col items-end">
-                                        <span className="text-sm font-medium text-white truncate max-w-[150px]">
-                                            {user.username || user.emailAddresses[0].emailAddress}
+                                        <span className="text-sm font-medium text-white">
+                                            Welcome {user.firstName || user.username || user.emailAddresses[0].emailAddress.split('@')[0]}!
                                         </span>
                                     </div>
                                     <div className="w-9 h-9 rounded-full border border-white/10 overflow-hidden ring-2 ring-white/5">

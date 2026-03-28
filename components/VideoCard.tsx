@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { getCldVideoUrl } from 'next-cloudinary'
-import { Download, Clock, FileDown, FileUp, Play } from 'lucide-react'
+import { Download, Clock, FileDown, FileUp, Play, Link as LinkIcon, Check } from 'lucide-react'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { filesize } from 'filesize'
+import toast from 'react-hot-toast'
 import { Video } from '@/app/generated/prisma/client'
 
 dayjs.extend(relativeTime)
@@ -17,6 +18,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, onDownload }) => {
 
     const [isHovered, setIsHovered] = useState(false);
     const [previewError, setPreviewError] = useState(false);
+    const [isCopied, setIsCopied] = useState(false);
 
     const getThumbnailUrl = useCallback((publicId: string) => {
         return getCldVideoUrl({
@@ -68,6 +70,15 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, onDownload }) => {
 
     const handlePreviewError = () => {
         setPreviewError(true);
+    };
+
+    const handleCopyLink = () => {
+        const shareUrl = `${window.location.origin}/v/${video.id}`;
+        navigator.clipboard.writeText(shareUrl);
+        toast.success('Link copied to clipboard!');
+        setIsCopied(true);
+        setTimeout(() => setIsCopied(false), 2000);
+
     };
 
     return (
@@ -139,17 +150,17 @@ const VideoCard: React.FC<VideoCardProps> = ({ video, onDownload }) => {
                     </div>
                 </div>
 
-                <div className="flex justify-between items-center pt-2 border-t border-white/5">
-                    <div className="text-xs font-medium text-neutral-500">
-                        {compressionPercentage > 0 ? (
-                            <span>Saved <span className="text-white font-bold">{compressionPercentage}%</span> space</span>
-                        ) : (
-                            <span className="opacity-50 italic text-[10px]">Normalizing size</span>
-                        )}
-                    </div>
+                <div className="flex justify-between items-center pt-4 mt-4 border-t border-white/5">
+                    <button
+                        onClick={handleCopyLink}
+                        className="flex items-center justify-center p-2.5 rounded-lg bg-neutral-900 border border-white/10 hover:bg-neutral-800 transition-colors text-gray-400 hover:text-white"
+                        title="Copy Public Link"
+                    >
+                        <LinkIcon className="w-4 h-4" />
+                    </button>
 
                     <button
-                        className="flex items-center gap-2 bg-white hover:bg-neutral-200 text-black px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200"
+                        className="flex items-center gap-2 bg-white hover:bg-neutral-200 text-black px-5 py-2.5 rounded-lg text-sm font-bold transition-all duration-200"
                         onClick={() => onDownload(getFullVideoUrl(video.publicId), video.title)}
                     >
                         <Download size={16} />
