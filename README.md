@@ -1,7 +1,13 @@
 
-# VoidVault
+# VoidVault 
+
+[**🚀 View Live Deployment**](https://voidvault-saas.vercel.app/)
 
 **VoidVault** is a high-performance, minimalist media processing SaaS designed for content creators. It leverages AI for automated social media image resizing and provides secure, user-isolated video storage and compression.
+
+### 📸 Previews
+
+![Dashboard]()
 
 ---
 
@@ -12,6 +18,8 @@
 * **Smart Video Compression**: Reduces video file sizes by up to 80% using server-side processing while maintaining visual quality.
 * **Minimalist Interface**: A premium, pitch-black UI built with Tailwind CSS and DaisyUI for a focused, high-contrast experience.
 * **Middleware Protection**: Robust authentication guards on all processing routes to prevent unauthorized API access.
+* **Lossless Video Compression**: Reduces heavy video file sizes by up to 80% while maintaining crisp 1080p quality, utilizing serverless media processing to bypass backend bottlenecks.
+* **Zero-Downtime Public Vaults**: Users can generate secure, distraction-free public viewing links for their compressed videos with a single click—no account required for viewers.
 
 ---
 
@@ -32,6 +40,14 @@ Unlike standard tutorial projects, VoidVault implements a strict **User Isolatio
 
 #### AI-Gravity Integration
 The Social Media Creator tool utilizes Cloudinary’s `g_auto` (gravity auto) parameter. This allows the application to intelligently detect the most interesting area of an image—such as a face or object—and center the crop perfectly for different aspect ratios without manual adjustment.
+
+### Architecture Highlights
+
+#### Serverless Client-Side Processing
+Instead of routing heavy video files through a traditional Node.js backend (which causes severe latency and memory crashes), VoidVault utilizes a direct-to-cloud architecture. Media is uploaded directly to Cloudinary, and Next.js manipulates the return URLs to trigger AI processing on Cloudinary's enterprise servers, resulting in near-instant processing times for the end user.
+
+#### Dynamic Share Routing
+The application uses Next.js dynamic routing (`/v/[id]`) combined with server-side database validation to instantly generate public-facing video pages, entirely decoupled from the authenticated dashboard state.
 
 ---
 
