@@ -5,7 +5,7 @@
 
 **VoidVault** is a high-performance, minimalist media processing SaaS designed for content creators. It leverages AI for automated social media image resizing and provides secure, user-isolated video storage and compression.
 
-### 📸 Previews
+### 📸 Preview:
 ![Dashboard](https://github.com/user-attachments/assets/c3c494c7-3e28-4188-b3a0-6673024492a3)
 ---
 
