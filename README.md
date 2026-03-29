@@ -7,7 +7,7 @@
 
 ### 📸 Previews
 
-![Dashboard]()
+![Dashboard](https://github.com/user-attachments/assets/995fb459-c563-4c48-8e9a-e7c45ce93431")
 
 ---
 
