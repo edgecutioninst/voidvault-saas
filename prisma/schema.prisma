@@ -13,10 +13,11 @@ model Video {
   description    String?
   publicId       String
   originalSize   String
-  compressedSize String
-  userId         String // Stores the Clerk User ID
-  bytes          Int
-  duration       Float
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+  duration       Float
+  bytes          Int
+  userId         String
+  compressedSize String
+  compressedUrl  String?
 }

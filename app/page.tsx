@@ -73,49 +73,6 @@ export default async function LandingPage() {
           </div>
         </div>
       </main>
-
-      {/* Updated Features Section */}
-      <section id="features" className="py-24 bg-neutral-950/50 border-y border-white/5">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-
-            <div className="bg-black border border-white/10 p-8 rounded-2xl hover:border-white/20 transition-all group">
-              <div className="bg-blue-500/10 w-12 h-12 flex items-center justify-center rounded-xl mb-6 group-hover:bg-blue-500/20 transition-colors">
-                <Crop className="text-blue-500" size={24} />
-              </div>
-              <h3 className="text-xl font-bold mb-3">AI Video Cropping</h3>
-              <p className="text-gray-500 leading-relaxed text-sm">
-                Transform landscape videos into 9:16 TikToks. Our AI automatically tracks faces and subjects to keep them perfectly centered.
-              </p>
-            </div>
-
-            <div className="bg-black border border-white/10 p-8 rounded-2xl hover:border-white/20 transition-all group relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-green-500/10 text-green-500 text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Zero Downtime</div>
-              <div className="bg-green-500/10 w-12 h-12 flex items-center justify-center rounded-xl mb-6 group-hover:bg-green-500/20 transition-colors">
-                <LinkIcon className="text-green-500" size={24} />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Public Share Links</h3>
-              <p className="text-gray-500 leading-relaxed text-sm">
-                Generate clean, distraction-free viewing pages for your videos with one click. Share them anywhere, no account required.
-              </p>
-            </div>
-
-            <div className="bg-black border border-white/10 p-8 rounded-2xl hover:border-white/20 transition-all group">
-              <div className="bg-purple-500/10 w-12 h-12 flex items-center justify-center rounded-xl mb-6 group-hover:bg-purple-500/20 transition-colors">
-                <ImageIcon className="text-purple-500" size={24} />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Lossless Compression</h3>
-              <p className="text-gray-500 leading-relaxed text-sm">
-                Upload huge video files and reduce their size by up to 80% while maintaining crisp 1080p quality via Cloudinary.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-
     </div>
   )
 }

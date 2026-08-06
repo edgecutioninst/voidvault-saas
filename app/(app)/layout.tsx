@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React, { useState } from "react";
@@ -8,7 +9,6 @@ import {
     LogOutIcon,
     MenuIcon,
     LayoutDashboardIcon,
-    Share2Icon,
     UploadIcon,
     Crop,
     Video,
@@ -66,7 +66,7 @@ export default function AppLayout({
                         </button>
                     </div>
 
-                    <nav className="flex-grow p-4 space-y-2 overflow-y-auto custom-scrollbar">
+                    <nav className="grow p-4 space-y-2 overflow-y-auto custom-scrollbar">
                         {sidebarItems.map((item) => (
                             <Link
                                 key={item.href}
@@ -97,7 +97,7 @@ export default function AppLayout({
                 </div>
             </aside>
 
-            <div className="flex-grow flex flex-col min-w-0 h-full overflow-hidden">
+            <div className="grow flex flex-col min-w-0 h-full overflow-hidden">
                 <header className="h-16 border-b border-white/5 bg-black/50 backdrop-blur-md sticky top-0 z-30">
                     <div className="h-full max-w-7xl mx-auto px-4 flex items-center justify-between">
                         <button
@@ -128,7 +128,7 @@ export default function AppLayout({
                     </div>
                 </header>
 
-                <main className="flex-grow overflow-y-auto p-4 lg:p-8 custom-scrollbar bg-black">
+                <main className="grow overflow-y-auto p-4 lg:p-8 custom-scrollbar bg-black">
                     <div className="max-w-7xl mx-auto">
                         {children}
                     </div>

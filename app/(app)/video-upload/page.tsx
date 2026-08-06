@@ -14,15 +14,35 @@ function VideoUpload() {
     const [duration, setDuration] = useState<number>(0);
     const [originalSize, setOriginalSize] = useState<string>('0');
     const [isSaving, setIsSaving] = useState(false);
+    const [compressedSize, setCompressedSize] = useState<number>(0);
+    const [compressedUrl, setCompressedUrl] = useState<string | null>(null);
 
     const router = useRouter();
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleUploadSuccess = (result: any) => {
         if (result.info) {
             setPublicId(result.info.public_id);
             setDuration(result.info.duration);
             setOriginalSize(result.info.bytes);
-            toast.success("Video uploaded to cloud!", { style: { background: '#000', color: '#fff', border: '1px solid #333' } });
+
+            if (result.info.eager?.[0]) {
+                setCompressedSize(result.info.eager[0].bytes);
+                setCompressedUrl(result.info.eager[0].secure_url);
+
+                console.log("Original:", result.info.bytes);
+                console.log("Compressed:", result.info.eager[0].bytes);
+                console.log("Compressed URL:", result.info.eager[0].secure_url);
+                console.log("EAGER:", result.info.eager[0]);
+            }
+
+            toast.success("Video uploaded to cloud!", {
+                style: {
+                    background: '#000',
+                    color: '#fff',
+                    border: '1px solid #333'
+                }
+            });
         }
     };
 
@@ -43,7 +63,9 @@ function VideoUpload() {
                 description,
                 publicId,
                 duration,
-                originalSize
+                originalSize,
+                compressedSize,
+                compressedUrl
             });
 
             if (res.status === 200) {
